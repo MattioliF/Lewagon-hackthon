@@ -11,11 +11,7 @@
     },
     "miniprogram": {
       "list": [
-        {
-          "name": "pages/menu/menu",
-          "pathName": "pages/menu/menu",
-          "scene": null
-        }
+      
       ]
     }
   }

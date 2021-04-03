@@ -4,45 +4,45 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    canIUseGetUserProfile: false,
-    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
+    currentUser: null,
+    restaurant: null,
   },
-  // 事件处理函数
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs'
+
+  onLoad: function (options) {
+    console.log(app.globalData)
+    this.setData({
+      currentUser: app.globalData.userInfo
     })
-  },
-  onLoad() {
-    if (wx.getUserProfile) {
-      this.setData({
-        canIUseGetUserProfile: true
-      })
-    }
-  },
-  getUserProfile(e) {
-    // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
-    wx.getUserProfile({
-      desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (res) => {
-        console.log(res)
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
+    const self = this
+    let Restaurant = new wx.BaaS.TableObject("restaurant_marie")
+    Restaurant.get("60681b6de6368733b390d1ed").then(
+      (res) => {
+        self.setData({
+          restaurant:res.data,
         })
       }
-    })
+    )
   },
-  getUserInfo(e) {
-    // 不推荐使用getUserInfo获取用户信息，预计自2021年4月13日起，getUserInfo将不再弹出弹窗，并直接返回匿名的用户个人信息
-    console.log(e)
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+
+  userInfoHandler: function(data) {
+    const self = this
+    wx.BaaS.auth.loginWithWechat(data).then(
+      (res) => {
+        console.log('results',res)
+        self.setData ({
+          currentUser:res
+        }),
+        wx.setStorageSync('userInfo', res)
+        getApp().globalData.userInfo = res
+      },
+      (err) => {
+      },
+    )
+  },
+
+  startOrder: function() {
+    wx.navigateTo({
+      url: '/pages/menu/menu',
     })
   }
 })

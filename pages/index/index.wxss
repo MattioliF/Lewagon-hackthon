@@ -1,19 +1,20 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #aaa;
+/**index.wxss**/
+
+.login-button {
+  background-color: rgb(0, 132, 255);
+  color: white;
+  box-shadow: 3rpx 3rpx 3rpx gray;
+  margin: 50rpx;
 }
 
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.start-button {
+  background-color:white;
+  box-shadow: 3rpx 3rpx 3rpx gray;
+  margin: 50rpx;
 }
-
-.usermotto {
-  margin-top: 200px;
+.small-image {
+  width: 350rpx;
+  height: 350rpx;
+  border-radius: 50rpx;
 }
