@@ -15,7 +15,7 @@
         {
           "name": "pages/order/confirmation",
           "pathName": "pages/order/confirmation",
-          "query": "",
+
           "scene": null
         }
       ]
