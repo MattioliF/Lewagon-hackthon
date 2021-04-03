@@ -18,3 +18,16 @@
 .order {
   width: 350rpx;
 }
+.total {
+  font-size: large;
+  background-color: orange;
+  width: 400rpx;
+  border-radius: 50rpx;
+  padding:10rpx;
+  text-align: center;
+  margin: 20rpx;
+}
+.container {
+  margin: 0 auto;
+
+}

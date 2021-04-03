@@ -8,6 +8,11 @@
         <view class="text">x{{order.count}}</view> 
     </view>
     <view>{{order.count * order.meals_id.price}} rmb</view>
-  <view>{{totalPrice}}</view>
+
 </view>
+<view class="container">
+    <view class="total">Total price {{totalPrice}}rmb</view>
+</view>
+
+
 

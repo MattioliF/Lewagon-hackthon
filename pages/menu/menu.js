@@ -96,5 +96,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  checkout: function(){
+    wx.navigateTo({
+      url: '/pages/order/confirmation',
+    })
   }
 })
