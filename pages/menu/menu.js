@@ -42,10 +42,10 @@ Page({
 
     let Orders = new wx.BaaS.TableObject('orders')
     let newOrder = Orders.create()
+
     newOrder.set({
-     meals_id: e.currentTarget.dataset.meals_id,
+     meals_id: e.currentTarget.dataset.id,
      count: 1
-      
     })
     newOrder.save().then(
       (res) => {

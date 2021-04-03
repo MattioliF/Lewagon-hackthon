@@ -4,14 +4,14 @@
 <view class="h1">Order now </view>
 <view style="font-size: 30px; margin-bottom: 20px">Menu</view>
 
-<view wx:for="{{meals}}" wx:for-item="meal" class="meal-card">
+<view wx:for="{{meals}}" wx:for-item="meal" class="meal-card" data-id="{{meal.id}}">
   <image class="meal-pic" src="{{meal.picture}}" alt="meal"></image>
     
   <view>
     <view>{{meal.name}}</view>
     <view>￥{{meal.price}}</view>
   </view>
-  <image bindtap="createOrder" class="icon" src="/images/Plus.png"></image>
+  <image bindtap="createOrder" data-id="{{meal.id}}" class="icon" src="/images/Plus.png"></image>
 </view>
 
 
