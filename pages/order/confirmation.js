@@ -7,7 +7,7 @@ Page({
   data: {
     order_item: [],
     orders:[],
-    price: null,
+    totalPrice:0,
   },
 
   /**
@@ -28,6 +28,7 @@ Page({
         self.setData({
           orders: res.data.objects,
         });
+        this.totalPrice();
         console.log("these are all the orders");
       },
       (err)=> {
@@ -86,4 +87,17 @@ Page({
 
   },
 
+  totalPrice: function (){
+
+    let totalPrice = 0 
+    console.log(this.data.orders)
+    this.data.orders.forEach(ele => {
+      let totalPriceItem = ele.count * ele.meals_id.price
+      totalPrice= totalPriceItem+ totalPrice     
+    });
+    console.log(totalPrice)  
+    this.setData({
+      totalPrice: totalPrice,
+    })
+  }
 })
