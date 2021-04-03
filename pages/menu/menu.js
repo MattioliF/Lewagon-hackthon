@@ -1,17 +1,32 @@
 // pages/menu/menu.js
+const app = getApp()
+
 Page({
 
   /**
    * Page initial data
    */
   data: {
-
+    currentUser: null,
+    meals: []
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    this.setData({
+      currentUser: app.globalData.userInfo
+    })
+    let Meals = new wx.BaaS.TableObject('meals')
+    const self = this 
+    Meals.find().then(
+      (res) => {
+        self.setData({
+          meals:res.data.objects
+        })
+      }
+    )
 
   },
 
@@ -20,6 +35,25 @@ Page({
    */
   onReady: function () {
 
+  },
+
+  createOrder: function(e){
+    console.log('create order', e)
+
+    let Orders = new wx.BaaS.TableObject('orders')
+    let newOrder = Orders.create()
+    newOrder.set({
+     meals_id: e.currentTarget.dataset.meals_id,
+     count: 1
+      
+    })
+    newOrder.save().then(
+      (res) => {
+        wx.showToast({
+          title: 'Ordered!',
+        })
+      }
+    )
   },
 
   /**

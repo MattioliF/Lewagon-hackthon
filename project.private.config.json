@@ -11,11 +11,7 @@
     },
     "miniprogram": {
       "list": [
-        {
-          "name": "pages/order/confirmation",
-          "pathName": "pages/order/confirmation",
-          "scene": null
-        }
+      
       ]
     }
   }
