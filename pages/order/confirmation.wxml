@@ -5,5 +5,5 @@
     <view>{{order.meals_id.name}}</view> 
     <view>x {{order.count}}</view> 
     <view>Total:{{order.count * order.meals_id.price}} rmb</view>
-  
 </view>
+<view>{{totalPrice}}</view>
