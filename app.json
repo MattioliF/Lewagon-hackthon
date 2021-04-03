@@ -1,8 +1,23 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/menu/menu",
+    "pages/order/confirmation",
     "pages/logs/logs"
+
   ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "Home"
+      },
+      {
+        "pagePath": "pages/menu/menu",
+        "text": "Menu"
+      }
+    ]
+  },
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",

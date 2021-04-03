@@ -1,0 +1,16 @@
+/* pages/menu/menu.wxss */
+
+.meal-card {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.meal-pic {
+  width: 250rpx;
+  height: 250rpx;
+  border-radius: 50%;
+}
+.icon {
+  width: 50rpx;
+  height: 50rpx;
+}

@@ -1,0 +1,9 @@
+<!--pages/order/confirmation.wxml-->
+<text style="font-size: 32px; font-weight: bold; margin-top: 12px; margin-bottom: 12px;">Orders</text>
+<view wx:for="{{orders}}" wx:for-item="order">
+    <image src="{{order.meals_id.picture}}" alt="photo"></image>
+    <view>{{order.meals_id.name}}</view> 
+    <view>x {{order.count}}</view> 
+    <view>Total:{{order.count * order.meals_id.price}} rmb</view>
+  
+</view>
