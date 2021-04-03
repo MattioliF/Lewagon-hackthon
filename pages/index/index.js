@@ -41,7 +41,7 @@ Page({
   },
 
   startOrder: function() {
-    wx.navigateTo({
+    wx.switchTab({
       url: '/pages/menu/menu',
     })
   }
