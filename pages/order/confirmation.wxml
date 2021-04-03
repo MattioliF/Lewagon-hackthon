@@ -1,4 +1,5 @@
 <!--pages/order/confirmation.wxml-->
+
 <text style="font-size: 32px; font-weight: bold; margin-top: 12px; margin-bottom: 50px;">Orders</text>
 <view class="order-item" wx:for="{{orders}}" wx:for-item="order">
     <image class="small-image" src="{{order.meals_id.picture}}" alt="photo"></image>
@@ -7,5 +8,6 @@
         <view class="text">x{{order.count}}</view> 
     </view>
     <view>{{order.count * order.meals_id.price}} rmb</view>
-  
+  <view>{{totalPrice}}</view>
 </view>
+
