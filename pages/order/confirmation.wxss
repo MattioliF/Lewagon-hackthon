@@ -1,1 +1,20 @@
 /* pages/order/confirmation.wxss */
+
+.small-image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f1f1f0af;
+  font-size:small;
+}
+.text {
+  text-align: left;
+}
+.order {
+  width: 350rpx;
+}
