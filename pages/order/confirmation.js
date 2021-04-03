@@ -5,13 +5,35 @@ Page({
    * Page initial data
    */
   data: {
-
+    order_item: [],
+    orders:[],
+    price: null,
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    // this.setData({
+    //   currentUser: applicationCache.globalData.userInfo
+    // })
+
+    const self= this;
+
+  
+    let Orders= new wx.BaaS.TableObject('orders')
+    Orders.expand(['meals_id']).find().then(
+      (res) => {
+        console.log('Orders res working', res);
+        self.setData({
+          orders: res.data.objects,
+        });
+        console.log("these are all the orders");
+      },
+      (err)=> {
+        console.log('Order err not working', err)
+      }
+    )
 
   },
 
@@ -62,5 +84,6 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
 })
